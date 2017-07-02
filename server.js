@@ -36,16 +36,14 @@ const server = net.createServer((socket) => {
     } else {
 
       broadcast(socket.name + ': ' + data + "\n");
-      //broadcast(`${socket.name}: ${data}\n`);
 
     }
 
   });
 
 
-
   // Send message to all clients, except sender
-  function broadcast(message, sender) {
+  function broadcast (message, sender) {
     clients.forEach (function (client) {
       if(client === sender) {
         return;
